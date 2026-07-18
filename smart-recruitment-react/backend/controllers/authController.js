@@ -21,7 +21,7 @@ async function register(req, res) {
 if (!name || !email || !password || !role) {
   return res.status(400).json({ success: false, message: 'All fields are required.' });
 }
-if ((role === 'admin' || role === 'recruiter') && adminCode !== 'Anushiyadevi') {
+if ((role === 'admin' || role === 'recruiter') && adminCode !== '12345') {
   return res.status(403).json({ success: false, message: 'Invalid admin code.' });
 }
 
