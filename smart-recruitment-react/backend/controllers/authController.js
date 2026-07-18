@@ -17,6 +17,7 @@ function generateToken(user) {
 async function register(req, res) {
   try {
    const { name, email, password, role, adminCode } = req.body;
+     console.log('DEBUG - received role:', JSON.stringify(role), 'adminCode:', JSON.stringify(adminCode));
 if (!name || !email || !password || !role) {
   return res.status(400).json({ success: false, message: 'All fields are required.' });
 }
