@@ -7,7 +7,7 @@ async function getAllCandidates(req, res) {
   try {
     const [rows] = await pool.query(`
       SELECT a.id AS application_id, u.id AS candidate_id, u.name, u.email,
-             j.title AS job_title, a.stage, a.match_score, a.applied_at
+            j.id AS job_id, j.title AS job_title, a.stage, a.match_score, a.applied_at
       FROM applications a
       JOIN users u ON a.candidate_id = u.id
       JOIN jobs j ON a.job_id = j.id
