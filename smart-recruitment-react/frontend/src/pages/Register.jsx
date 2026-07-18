@@ -40,8 +40,8 @@ export default function Register() {
       showToast('Please accept the terms and conditions', 'error');
       return;
     }
-   if ((role === 'admin' || role === 'recruiter') && adminCode !== '12345') {
-  showToast('Invalid admin code for this role', 'error');
+  if ((role === 'admin' || role === 'recruiter') && adminCode !== '12345') {
+  showToast(`DEBUG: you typed "${adminCode}" (length ${adminCode.length})`, 'error');
   return;
 }
 
