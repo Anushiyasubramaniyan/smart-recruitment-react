@@ -40,11 +40,7 @@ export default function Register() {
       showToast('Please accept the terms and conditions', 'error');
       return;
     }
-  if ((role === 'admin' || role === 'recruiter') && adminCode !== '12345') {
-  showToast(`DEBUG: you typed "${adminCode}" (length ${adminCode.length})`, 'error');
-  return;
-}
-
+ 
     setLoading(true);
     try {
       const user = await register({ name, email, password, role, adminCode});
