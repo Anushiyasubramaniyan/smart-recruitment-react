@@ -21,9 +21,6 @@ async function register(req, res) {
 if (!name || !email || !password || !role) {
   return res.status(400).json({ success: false, message: 'All fields are required.' });
 }
-if ((role === 'admin' || role === 'recruiter') && adminCode !== '12345') {
-  return res.status(403).json({ success: false, message: 'Invalid admin code.' });
-}
 
     const [existing] = await pool.query('SELECT id FROM users WHERE email = ?', [email]);
     if (existing.length) {
