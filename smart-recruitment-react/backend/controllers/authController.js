@@ -16,12 +16,10 @@ function generateToken(user) {
 
 async function register(req, res) {
   try {
-   const { name, email, password, role, adminCode } = req.body;
-     console.log('DEBUG - received role:', JSON.stringify(role), 'adminCode:', JSON.stringify(adminCode));
-if (!name || !email || !password || !role) {
-  return res.status(400).json({ success: false, message: 'All fields are required.' });
-}
-
+    const { name, email, password, role, adminCode } = req.body;
+    if (!name || !email || !password || !role) {
+      return res.status(400).json({ success: false, message: 'All fields are required.' });
+    }
     const [existing] = await pool.query('SELECT id FROM users WHERE email = ?', [email]);
     if (existing.length) {
       return res.status(409).json({ success: false, message: 'An account with this email already exists.' });
