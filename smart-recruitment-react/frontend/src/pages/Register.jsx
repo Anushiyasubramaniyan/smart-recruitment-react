@@ -91,7 +91,7 @@ export default function Register() {
               <label htmlFor="name">Full Name</label>
               <div className="input-icon-wrap">
                 <i className="fa-solid fa-user"></i>
-                <input type="text" id="name" className="form-control" placeholder="Jane Doe" value={name} onChange={(e) => setName(e.target.value)} required />
+                <input type="text" id="name" className="form-control" placeholder="Enter your name" value={name} onChange={(e) => setName(e.target.value)} required />
               </div>
             </div>
             <div className="form-group">
