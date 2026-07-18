@@ -40,7 +40,7 @@ export default function Register() {
       showToast('Please accept the terms and conditions', 'error');
       return;
     }
-   if ((role === 'admin' || role === 'recruiter') && adminCode !== 'Anushiyadevi') {
+   if ((role === 'admin' || role === 'recruiter') && adminCode !== '12345') {
   showToast('Invalid admin code for this role', 'error');
   return;
 }
