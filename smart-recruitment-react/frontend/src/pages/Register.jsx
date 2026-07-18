@@ -40,7 +40,7 @@ export default function Register() {
       showToast('Please accept the terms and conditions', 'error');
       return;
     }
-   if ((role === 'recruiter' || role === 'admin') && adminCode !== 'MyCollege2026Secure') {
+   if ((role === 'recruiter' || role === 'admin') && adminCode !== 'Anushiyadevi') {
   showToast('Invalid admin code for this role', 'error');
   return;
 }
