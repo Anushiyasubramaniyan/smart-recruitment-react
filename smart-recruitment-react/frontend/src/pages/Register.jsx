@@ -15,7 +15,6 @@ export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [adminCode, setAdminCode] = useState('');
   const [terms, setTerms] = useState(false);
   const [loading, setLoading] = useState(false);
   const { register } = useAuth();
@@ -43,7 +42,7 @@ export default function Register() {
  
     setLoading(true);
     try {
-      const user = await register({ name, email, password, role, adminCode});
+      const user = await register({ name, email, password, role});
       showToast(`Account created! Welcome, ${user.name}.`, 'success');
       navigate(`/${user.role}/dashboard`);
     } catch (err) {
@@ -115,15 +114,6 @@ export default function Register() {
                 <i className="fa-solid fa-lock"></i>
                 <input type="password" id="confirmPassword" className="form-control" placeholder="Re-enter password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
               </div>
-              {(role === 'recruiter' || role === 'admin') && (
-  <div className="form-group">
-    <label htmlFor="adminCode">Admin Code</label>
-    <div className="input-icon-wrap">
-      <i className="fa-solid fa-key"></i>
-      <input type="password" id="adminCode" className="form-control" placeholder="Enter admin code" value={adminCode} onChange={(e) => setAdminCode(e.target.value)} required />
-    </div>
-  </div>
-)}
             </div>
             <div className="form-check">
               <label><input type="checkbox" checked={terms} onChange={(e) => setTerms(e.target.checked)} /> I agree to the <a href="#">Terms</a> & <a href="#">Privacy Policy</a></label>
